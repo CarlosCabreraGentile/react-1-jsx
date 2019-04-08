@@ -1,12 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+//Import React and ReactDOM dependencies
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//Create react component
+const App = () => {
+  // return <div>Hi!!</div>;
+    //Reference into JSX
+    const clickButton = 'Click Me!';
+    const labelText = 'Enter Name: ';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  return (
+    <div>
+      <label className="label" htmlFor="name">
+        {labelText}
+      </label>
+      <input id="name" type="text" />
+      {/* HTML NOT JSX */}
+      {/* <button style="background-color: blue; color:white;">Submit</button> */}
+      {/* JSX WORK ON BROWSERS */}
+      <button style={{ 
+                        backgroundColor: 'blue', 
+                        color: 'white' 
+                    }}>
+        {/* Reference variable */}
+        {clickButton}
+      </button>
+    </div>
+  );
+};
+
+//Take the react component and show it on the screen
+ReactDOM.render(
+  <App />,
+  //document.getElementById('root') option 1
+  document.querySelector("#root") // option 2
+);
